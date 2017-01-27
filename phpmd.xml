@@ -14,7 +14,7 @@
     
     <rule ref="rulesets/controversial.xml/CamelCaseMethodName">
         <properties>
-            <property name="allow-underscore" value="true"></property>
+            <property name="allow-underscore" value="true" />
         </properties>
     </rule>
 </ruleset>
