@@ -251,7 +251,7 @@ abstract class AbstractContainer
     protected function _resolveDefinition($definition, $config)
     {
         if (!is_callable($definition)) {
-            throw $this->_createContainerException(sprintf('Could not create service for ID "%1$s": service definition must be callable', $id));
+            throw $this->_createContainerException(sprintf('Could not resolve service definition": definition must be callable'));
         }
 
         return call_user_func_array($definition, array($this, null, $config));
