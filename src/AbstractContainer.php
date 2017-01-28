@@ -39,7 +39,7 @@ abstract class AbstractContainer
      *
      * @param string ID The ID of the service to retrieve.
      *
-     * @throws NotFoundException If no service is registered with the given ID.
+     * @throws NotFoundExceptionInterface If no service is registered with the given ID.
      *
      * @return mixed The service identified by the given ID.
      */
