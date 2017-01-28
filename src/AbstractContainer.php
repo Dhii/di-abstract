@@ -5,6 +5,7 @@ namespace Dhii\Di;
 use Interop\Container\Exception\ContainerException as ContainerExceptionInterface;
 use Interop\Container\Exception\NotFoundException as NotFoundExceptionInterface;
 use Exception;
+use Interop\Container\ServiceProvider;
 
 /**
  * Basic functionality of a DI container.
@@ -94,14 +95,14 @@ abstract class AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @param string|ServiceProviderInterface $id         The service ID, or a service provider
+     * @param string|ServiceProvider $id         The service ID, or a service provider
      * @param callable|null          $definition The service definition.
      *
      * @return $this This instance.
      */
     protected function _set($id, $definition = null)
     {
-        if ($id instanceof ServiceProviderInterface) {
+        if ($id instanceof ServiceProvider) {
             $this->_setFromProvider($id);
 
             return $this;
@@ -117,11 +118,11 @@ abstract class AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @param ServiceProviderInterface $provider The service provider.
+     * @param ServiceProvider $provider The service provider.
      *
      * @return $this This instance.
      */
-    protected function _setFromProvider(ServiceProviderInterface $provider)
+    protected function _setFromProvider(ServiceProvider $provider)
     {
         foreach ($provider->getServices() as $_id => $_definition) {
             $this->_setDefinition($_id, $_definition);
@@ -256,7 +257,7 @@ abstract class AbstractContainer
 
         return call_user_func_array($definition, array($this, null, $config));
     }
-    
+
     /**
      * Creates a new exception that represents a case where a container entry is not found.
      *
@@ -265,7 +266,7 @@ abstract class AbstractContainer
      * @return NotFoundExceptionInterface The new exception instance.
      */
     abstract protected function _createNotFoundException($message, $code = 0, Exception $innerException = null);
-    
+
     /**
      * Creates a new exception that represents a generic DI container error.
      *
