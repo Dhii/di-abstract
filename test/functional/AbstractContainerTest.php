@@ -40,7 +40,12 @@ class AbstractContainerTest extends TestCase
             ->new();
 
         if ($provider !== null) {
-            $mock->this()->_set($definitions);
+            foreach ($provider->getServices() as $_id => $_definition) {
+                $mock->this()->serviceDefinitions = array_merge(
+                    $mock->this()->serviceDefinitions,
+                    array($_id => $_definition)
+                );
+            }
         }
 
         return $mock;
