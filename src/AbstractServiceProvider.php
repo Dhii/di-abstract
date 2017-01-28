@@ -57,7 +57,7 @@ abstract class AbstractServiceProvider
 
         return $this;
     }
-    
+
     /**
      * Creates a new exception that represents a generic DI container error.
      *
