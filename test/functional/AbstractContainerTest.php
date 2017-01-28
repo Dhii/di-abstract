@@ -24,9 +24,11 @@ class AbstractContainerTest extends TestCase
      *
      * @since [*next-version*]
      *
+     * @param ServiceProvider $provider Optional service provider. Default: null
+     *
      * @return AbstractContainer
      */
-    public function createInstance(ServiceProvider $definitions = null)
+    public function createInstance(ServiceProvider $provider = null)
     {
         $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME)
             ->_createNotFoundException(function ($msg, $code = 0, Exception $prev = null) {
@@ -37,7 +39,7 @@ class AbstractContainerTest extends TestCase
             })
             ->new();
 
-        if ($definitions !== null) {
+        if ($provider !== null) {
             $mock->this()->_set($definitions);
         }
 
