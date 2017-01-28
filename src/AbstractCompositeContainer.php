@@ -2,7 +2,7 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\ContainerInterface;
+use Interop\Container\ContainerInterface as BaseContainerInterface;
 use Traversable;
 
 /**
@@ -24,13 +24,13 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      *
      * @since [*next-version*]
      *
-     * @param ContainerInterface $container The container to add.
+     * @param BaseContainerInterface $container The container to add.
      *
      * @return $this This instance.
      */
-    protected function _add(ContainerInterface $container)
+    protected function _add(BaseContainerInterface $container)
     {
-        $this->_set($this->_createContainerId($container), function (ContainerInterface $c, $previous = null) use ($container) {
+        $this->_set($this->_createContainerId($container), function (BaseContainerInterface $c, $previous = null) use ($container) {
             return $container;
         });
 
@@ -48,7 +48,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      *
      * @return string A new container ID, guaranteed to be unique in the scope of this container.
      */
-    protected function _createContainerId(ContainerInterface $container)
+    protected function _createContainerId(BaseContainerInterface $container)
     {
         do {
             $id = uniqid(static::CONTAINER_ID_PREFIX);
