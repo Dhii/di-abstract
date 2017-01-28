@@ -72,7 +72,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      */
     protected function _getRootContainer()
     {
-        $parent = $this;
+        $parent = $this->_getParentContainer();
         do {
             $root = $parent;
 
