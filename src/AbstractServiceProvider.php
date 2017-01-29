@@ -65,5 +65,5 @@ abstract class AbstractServiceProvider
      * 
      * @return ContainerExceptionInterface The new exception instance.
      */
-    abstract protected function _createContainerException($message, $code = 0, Exception $innerException = null);
+    abstract protected function _createContainerException($message, $code = 0, \Exception $innerException = null);
 }
