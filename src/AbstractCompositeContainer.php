@@ -108,7 +108,10 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     {
         $containers = array();
         foreach ($this->serviceDefinitions as $_key => $_value) {
-            $containers[$_key] = $this->_get($_key);
+            $service = $this->_get($_key);
+            if ($service instanceof BaseContainerInterface) {
+                $containers[$_key] = $service;
+            }
         }
 
         return $containers;
