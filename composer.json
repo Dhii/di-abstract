@@ -26,6 +26,11 @@
             "Dhii\\Di\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Dhii\\Di\\Stub\\": "test/stub/"
+        }
+    },
     "repositories": [
         {
             "type": "vcs",
