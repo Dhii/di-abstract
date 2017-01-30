@@ -59,6 +59,24 @@ abstract class AbstractServiceProvider
     }
 
     /**
+     * Adds multiple service definitions to this provider.
+     *
+     * @since [*next-version*]
+     *
+     * @param array|\Traversable $definitions An associative array of service definitions mapped by string keys.
+     *
+     * @return $this This instance.
+     */
+    protected function _addMany($definitions)
+    {
+        foreach ($definitions as $_id => $_definition) {
+            $this->_add($_id, $_definition);
+        }
+
+        return $this;
+    }
+
+    /**
      * Creates a new exception that represents a generic DI container error.
      *
      * @since [*next-version*]

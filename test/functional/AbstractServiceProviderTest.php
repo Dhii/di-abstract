@@ -96,6 +96,25 @@ class AbstractServiceProviderTest extends TestCase
     }
 
     /**
+     * Tests the multiple service definition registration method to ensure that definitions are
+     * correctly registered in the provider.
+     *
+     * @since [*next-version*]
+     */
+    public function testAddMany()
+    {
+        $subject = $this->createInstance();
+
+        $subject->this()->_addMany(array(
+            'test' => $this->createDefinition('this is a test'),
+            'pi'   => $this->createDefinition(3.14159265359)
+        ));
+
+        $this->assertArrayHasKey('test', $subject->this()->serviceDefinitions);
+        $this->assertArrayHasKey('pi', $subject->this()->serviceDefinitions);
+    }
+
+    /**
      * Tests the service definition registration method with an invalid definition to ensure that an
      * exception is thrown in such cases.
      *
