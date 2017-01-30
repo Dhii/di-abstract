@@ -193,14 +193,12 @@ class AbstractContainerTest extends TestCase
     }
 
     /**
-     * Tests the method that allows a service provider to register services.
-     *
-     * This test ensures that all services are correctly registered from the
-     * provider to the container.
+     * Tests the method that registers a service provider to ensure that all services are
+     * correctly registered from the provider to the container.
      *
      * @since [*next-version*]
      */
-    public function testSetFromProvider()
+    public function testRegister()
     {
         $subject = $this->createInstance();
         $provider = $this->createServiceProvider(array(
@@ -210,7 +208,7 @@ class AbstractContainerTest extends TestCase
         ));
         $expected = $provider->getServices();
 
-        $subject->this()->_setFromProvider($provider);
+        $subject->this()->_register($provider);
 
         $this->assertEquals($expected, $subject->this()->serviceDefinitions);
     }

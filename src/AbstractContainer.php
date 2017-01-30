@@ -103,7 +103,7 @@ abstract class AbstractContainer
     protected function _set($id, $definition = null)
     {
         if ($id instanceof ServiceProvider) {
-            $this->_setFromProvider($id);
+            $this->_register($id);
 
             return $this;
         }
@@ -114,15 +114,15 @@ abstract class AbstractContainer
     }
 
     /**
-     * Registers the services given by a service provider.
+     * Registers a service provider in this container.
      *
      * @since [*next-version*]
      *
-     * @param ServiceProvider $provider The service provider.
+     * @param ServiceProvider $provider The service provider to register.
      *
      * @return $this This instance.
      */
-    protected function _setFromProvider(ServiceProvider $provider)
+    protected function _register(ServiceProvider $provider)
     {
         foreach ($provider->getServices() as $_id => $_definition) {
             $this->_setDefinition($_id, $_definition);
