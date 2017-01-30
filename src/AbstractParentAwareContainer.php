@@ -2,7 +2,7 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\ContainerInterface;
+use Interop\Container\ContainerInterface as BaseContainerInterface;
 
 /**
  * Functionality that facilitates parent awareness of a container.
@@ -16,7 +16,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @var ContainerInterface
+     * @var BaseContainerInterface
      */
     protected $parentContainer;
 
@@ -25,7 +25,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @return ContainerInterface|null The parent container or null if this container has no parent.
+     * @return BaseContainerInterface|null The parent container or null if this container has no parent.
      */
     protected function _getParentContainer()
     {
@@ -43,7 +43,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      */
     protected function _hasParentContainer()
     {
-        return $this->parentContainer instanceof ContainerInterface;
+        return $this->parentContainer instanceof BaseContainerInterface;
     }
 
     /**
@@ -51,11 +51,11 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @param ContainerInterface|null $container The parent container or null to remove the parent. Default: null
+     * @param BaseContainerInterface|null $container The parent container or null to remove the parent. Default: null
      *
      * @return $this This instance.
      */
-    protected function _setParentContainer(ContainerInterface $container = null)
+    protected function _setParentContainer(BaseContainerInterface $container = null)
     {
         $this->parentContainer = $container;
 
@@ -67,8 +67,8 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @return ContainerInterface|null The top-most container in the chain, if exists;
-     *                                 null otherwise.
+     * @return BaseContainerInterface|null The top-most container in the chain, if exists;
+     *                                     null otherwise.
      */
     protected function _getRootContainer()
     {
