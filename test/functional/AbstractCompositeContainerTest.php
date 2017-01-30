@@ -159,10 +159,9 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * Tests the method that checks if a service is delegated to a child container.
      *
      * The method is also expected to return the container instance that has the delegated service.
-     * In the event of service keys being registered across multiple child containers, the first
-     * child container encountered that has that service key will be returned.
      *
-     * @todo Discuss and confirm whether this FIFO behaviour is desirable. Perhaps LIFO makes more sense?
+     * In the event of service keys being registered across multiple child containers, the service
+     * will be retrieved from the last child container registered.
      *
      * @since [*next-version*]
      */
@@ -193,18 +192,16 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
         // Child2 has "test"
         $this->assertEquals($child2, $subject->this()->_hasDelegated('test'));
 
-        // Both children have "dupe" but Child1 is the expected return since it was first registered
-        $this->assertEquals($child1, $subject->this()->_hasDelegated('dupe'));
+        // Both children have "dupe" but Child2 is the expected return since it was registered last
+        $this->assertEquals($child2, $subject->this()->_hasDelegated('dupe'));
     }
 
     /**
      * Tests the delegated service getter method to ensure that any services that are registered
      * to child containers are retrievable.
      *
-     * This test also ensures that services that are registered with the same key across multiple
-     * child containers are retrievable according to which was first registered.
-     *
-     * @todo Discuss and confirm whether this FIFO behaviour is desirable. Perhaps LIFO makes more sense?
+     * This test also ensures that in the event of service keys being registered across multiple
+     * child containers, the service will be retrieved from the last child container registered.
      *
      * @since [*next-version*]
      */
@@ -227,7 +224,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
 
         $this->assertEquals(123456, $subject->this()->_getDelegated('test'));
 
-        $this->assertEquals('duplicate from 1', $subject->this()->_getDelegated('dupe'));
+        $this->assertEquals('duplicate from 2', $subject->this()->_getDelegated('dupe'));
 
         $this->assertNull($subject->this()->_getDelegated('foobar'));
     }
