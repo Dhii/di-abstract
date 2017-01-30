@@ -5,7 +5,7 @@ namespace Dhii\Di;
 use Interop\Container\Exception\ContainerException as ContainerExceptionInterface;
 use Interop\Container\Exception\NotFoundException as NotFoundExceptionInterface;
 use Exception;
-use Interop\Container\ServiceProvider;
+use Interop\Container\ServiceProvider as BaseServiceProvider;
 
 /**
  * Basic functionality of a DI container.
@@ -95,14 +95,14 @@ abstract class AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @param string|ServiceProvider $id         The service ID, or a service provider
-     * @param callable|null          $definition The service definition.
+     * @param string|BaseServiceProvider $id         The service ID, or a service provider
+     * @param callable|null              $definition The service definition.
      *
      * @return $this This instance.
      */
     protected function _set($id, $definition = null)
     {
-        if ($id instanceof ServiceProvider) {
+        if ($id instanceof BaseServiceProvider) {
             $this->_register($id);
 
             return $this;
@@ -118,11 +118,11 @@ abstract class AbstractContainer
      *
      * @since [*next-version*]
      *
-     * @param ServiceProvider $provider The service provider to register.
+     * @param BaseServiceProvider $provider The service provider to register.
      *
      * @return $this This instance.
      */
-    protected function _register(ServiceProvider $provider)
+    protected function _register(BaseServiceProvider $provider)
     {
         foreach ($provider->getServices() as $_id => $_definition) {
             $this->_setDefinition($_id, $_definition);
