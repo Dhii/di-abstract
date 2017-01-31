@@ -7,14 +7,14 @@ use Interop\Container\ContainerInterface as BaseContainerInterface;
 /**
  * Functionality that facilitates parent awareness of a container.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractParentAwareContainer extends AbstractContainer
 {
     /**
      * The parent container instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @var BaseContainerInterface
      */
@@ -23,7 +23,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     /**
      * Retrieves the parent container instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return BaseContainerInterface|null The parent container or null if this container has no parent.
      */
@@ -37,7 +37,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     /**
      * Checks if this container has a parent container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return bool True if this container has a parent; false otherwise.
      */
@@ -49,7 +49,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     /**
      * Sets the parent container instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param BaseContainerInterface|null $container The parent container or null to remove the parent. Default: null
      *
@@ -65,7 +65,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
     /**
      * Retrieves the container at the root of the hierarchy.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return BaseContainerInterface|null The top-most container in the chain, if exists;
      *                                     null otherwise.
@@ -89,7 +89,7 @@ abstract class AbstractParentAwareContainer extends AbstractContainer
      *
      * This is what does the magic.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * @see AbstractContainer::_resolveDefinition()
      */
     protected function _resolveDefinition($definition, $config)

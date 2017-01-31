@@ -10,14 +10,14 @@ use Interop\Container\ServiceProvider as BaseServiceProvider;
 /**
  * Basic functionality of a DI container.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractContainer
 {
     /**
      * Cache for created service instances.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @var array
      */
@@ -26,7 +26,7 @@ abstract class AbstractContainer
     /**
      * The service definitions.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @var callable[]
      */
@@ -35,7 +35,7 @@ abstract class AbstractContainer
     /**
      * Retrieves a service by its ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string ID The ID of the service to retrieve.
      *
@@ -80,7 +80,7 @@ abstract class AbstractContainer
     /**
      * Checks if a service ID exists in this container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return bool True if a definition with the specified ID exists in this container;
      *              false otherwise.
@@ -93,7 +93,7 @@ abstract class AbstractContainer
     /**
      * Registers a service or multiple services to this container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string|BaseServiceProvider $id         The service ID, or a service provider
      * @param callable|null              $definition The service definition.
@@ -116,7 +116,7 @@ abstract class AbstractContainer
     /**
      * Registers a service provider in this container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param BaseServiceProvider $provider The service provider to register.
      *
@@ -134,7 +134,7 @@ abstract class AbstractContainer
     /**
      * Retrieves the service definitions.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return callable[] An associative array of all the registered definitions, mapped by their ID.
      */
@@ -146,7 +146,7 @@ abstract class AbstractContainer
     /**
      * Retrieves a service definition by ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service to get the definition for.
      *
@@ -163,7 +163,7 @@ abstract class AbstractContainer
     /**
      * Checks if a service definition is registered to a given ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service definition to check for.
      *
@@ -178,7 +178,7 @@ abstract class AbstractContainer
     /**
      * Registers a service definition.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string   $id         The service ID.
      * @param callable $definition The service definition.
@@ -193,7 +193,7 @@ abstract class AbstractContainer
     /**
      * Retrieves the cached instance of a service.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service to retrieve.
      *
@@ -209,7 +209,7 @@ abstract class AbstractContainer
     /**
      * Checks if a service instance is cached.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The service ID to check.
      *
@@ -223,7 +223,7 @@ abstract class AbstractContainer
     /**
      * Caches a service instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id      The ID of the service to cache.
      * @param mixed  $service The service.
@@ -240,7 +240,7 @@ abstract class AbstractContainer
     /**
      * Resolves a service definition into a service instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param callable $definition The service definition.
      * @param array    $config     An array of configuration arguments to pass to the definition.
@@ -261,7 +261,7 @@ abstract class AbstractContainer
     /**
      * Creates a new exception that represents a case where a container entry is not found.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * 
      * @return NotFoundExceptionInterface The new exception instance.
      */
@@ -270,7 +270,7 @@ abstract class AbstractContainer
     /**
      * Creates a new exception that represents a generic DI container error.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * 
      * @return ContainerExceptionInterface The new exception instance.
      */

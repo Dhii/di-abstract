@@ -8,21 +8,21 @@ use Traversable;
 /**
  * A container that can have many containers.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
 {
     /**
      * The prefix for container IDs.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     const CONTAINER_ID_PREFIX = 'container-';
 
     /**
      * Adds a container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param BaseContainerInterface $container The container to add.
      *
@@ -42,7 +42,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      *
      * @todo To check if the $container instance should play a part in ID generation.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ContainerInterface $container The container for which an ID will be generated.
      *
@@ -60,7 +60,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Retrieves a service from the first child container that has its definition.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service to retrieve.
      *
@@ -78,7 +78,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Determines which of the child containers has a service with the specified ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service to check for.
      *
@@ -102,7 +102,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Gets the child containers.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * @see CompositeContainerInterface::getContainers()
      *
      * @return ContainerInterface[]|Traversable A list of containers.

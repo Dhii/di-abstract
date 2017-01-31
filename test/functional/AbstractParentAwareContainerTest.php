@@ -11,7 +11,7 @@ use Xpmock\TestCase;
 /**
  * Tests {@see Dhii\Di\AbstractParentAwareContainer}.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class AbstractParentAwareContainerTest extends TestCase
 {
@@ -23,7 +23,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Creates a new instance of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return AbstractParentAwareContainer
      */
@@ -115,7 +115,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests whether a valid instance of the test subject can be created.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testCanBeCreated()
     {
@@ -127,7 +127,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the parent container checker method when the container has no parent.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testHasParentContainerNoParent()
     {
@@ -139,7 +139,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the parent container checker method when the container has a parent.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testHasParentContainerWithParent()
     {
@@ -152,7 +152,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the parent container getter method when the container has no parent.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetParentContainerNoParent()
     {
@@ -164,7 +164,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the parent container getter method when the container has a parent.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetParentContainerWithParent()
     {
@@ -177,7 +177,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the parent container setter method with a container argument.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testSetParentContainer()
     {
@@ -193,7 +193,7 @@ class AbstractParentAwareContainerTest extends TestCase
      * Tests the parent container setter method with a container argument and then a null
      * argument to assert if the parent container previously set is correctly cleared.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testSetParentContainerNull()
     {
@@ -209,7 +209,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the root container resolver method with a single level of parent hierarchy.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetRootContainerOneLevel()
     {
@@ -222,7 +222,7 @@ class AbstractParentAwareContainerTest extends TestCase
     /**
      * Tests the root container resolver method with two levels of parent hierarchy.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetRootContainerTwoLevels()
     {
@@ -240,7 +240,7 @@ class AbstractParentAwareContainerTest extends TestCase
      * It also ensures that the container instance passed as argument to the service factory closure
      * is the root container of the hierarchy.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testResolveDefinition()
     {

@@ -8,14 +8,14 @@ use Interop\Container\ServiceProvider;
 /**
  * Abstract implementation of an object that can provide services.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractServiceProvider
 {
     /**
      * The service definitions.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @var callable[]
      */
@@ -24,7 +24,7 @@ abstract class AbstractServiceProvider
     /**
      * Gets the service definitions.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * @see ServiceProvider::getServices()
      *
      * @return callable[]|\Traversable A list of service definitions.
@@ -37,7 +37,7 @@ abstract class AbstractServiceProvider
     /**
      * Adds a service definition to this provider.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string   $id         The ID of the service definition.
      * @param callable $definition The service definition.
@@ -61,7 +61,7 @@ abstract class AbstractServiceProvider
     /**
      * Adds multiple service definitions to this provider.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param array|\Traversable $definitions An associative array of service definitions mapped by string keys.
      *
@@ -79,7 +79,7 @@ abstract class AbstractServiceProvider
     /**
      * Creates a new exception that represents a generic DI container error.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * 
      * @return ContainerExceptionInterface The new exception instance.
      */

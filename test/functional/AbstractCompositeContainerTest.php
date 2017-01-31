@@ -12,7 +12,7 @@ namespace Dhii\Di\FuncTest;
  * container being passed as the first argument to service factory closures to be a container
  * that implements the standard interop interface.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class AbstractCompositeContainerTest extends \Xpmock\TestCase
 {
@@ -24,7 +24,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
     /**
      * Creates a new instance of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @return AbstractCompositeContainer
      */
@@ -92,7 +92,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * Tests the container ID generator method to ensure that different containers result in
      * different keys.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testCreateContainerId()
     {
@@ -110,7 +110,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * Tests the method that adds containers to ensure that the container is correctly registered
      * inside a definition and that the definition correctly returns the same registered instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testAdd()
     {
@@ -134,7 +134,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * Tests the container getter method to ensure that the containers, and only containers,
      * are correctly retrieved in an array - as instances and not definitions.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetContainers()
     {
@@ -163,7 +163,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * In the event of service keys being registered across multiple child containers, the service
      * will be retrieved from the last child container registered.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testHasDelegated()
     {
@@ -203,7 +203,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * This test also ensures that in the event of service keys being registered across multiple
      * child containers, the service will be retrieved from the last child container registered.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetDelegated()
     {
