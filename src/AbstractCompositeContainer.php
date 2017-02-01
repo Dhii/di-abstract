@@ -119,4 +119,17 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
 
         return $containers;
     }
+
+    /**
+     * Gets the child containers in reverse order.
+     *
+     * @since 0.1
+     * @see CompositeContainerInterface::getContainers()
+     *
+     * @return ContainerInterface[]|Traversable A list of containers.
+     */
+    protected function _getContainersReversed()
+    {
+        return array_reverse($this->_getContainers());
+    }
 }
