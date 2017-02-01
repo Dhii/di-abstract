@@ -87,14 +87,13 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      */
     protected function _hasDelegated($id)
     {
-        $containers = $this->_getContainers();
-        $container  = end($containers);
+        $containers = $this->_getContainersReversed();
 
-        do {
-            if ($container->has($id)) {
-                return $container;
+        foreach ($containers as $_container) {
+            if ($_container->has($id)) {
+                return $_container;
             }
-        } while ($container = prev($containers));
+        }
 
         return false;
     }
