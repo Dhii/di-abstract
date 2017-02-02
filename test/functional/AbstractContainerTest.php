@@ -54,6 +54,8 @@ class AbstractContainerTest extends TestCase
     /**
      * Creates a service provider.
      *
+     * @since 0.1
+     *
      * @param array $definitions The service definitions.
      *
      * @return ServiceProvider
@@ -71,6 +73,8 @@ class AbstractContainerTest extends TestCase
 
     /**
      * Create a service definition that returns a simple value.
+     *
+     * @since 0.1
      *
      * @param mixed $value The value that the service definition will return.
      *
