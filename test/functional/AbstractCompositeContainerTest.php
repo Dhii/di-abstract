@@ -31,11 +31,11 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
     public function createInstance(array $definitions = array())
     {
         $mock = $this->mock(static::TEST_SUBJECT_CLASSNAME)
-            ->_createNotFoundException(function ($msg, $code = 0, Exception $prev = null) {
-                return new Exception($msg, $code, $prev);
+            ->_createNotFoundException(function ($msg, $code = 0, \Exception $prev = null) {
+                return new \Exception($msg, $code, $prev);
             })
-            ->_createContainerException(function ($m, $code = 0, Exception $prev = null) {
-                return new Exception($m, $code, $prev);
+            ->_createContainerException(function ($m, $code = 0, \Exception $prev = null) {
+                return new \Exception($m, $code, $prev);
             })
             ->new();
 
