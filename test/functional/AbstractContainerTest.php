@@ -172,6 +172,27 @@ class AbstractContainerTest extends TestCase
     }
 
     /**
+     * Tests that the container throws correct exception when service not found.
+     *
+     * @expectedException \Exception
+     * @expectedExceptionMessage no service defined
+     *
+     * @since 0.1
+     */
+    public function testMakeThrowsNotFound()
+    {
+        $serviceProvider = $this->createServiceProvider(array(
+            'test' => function () {
+                return new \SplObjectStorage();
+            },
+        ));
+
+        $subject = $this->createInstance($serviceProvider);
+        $reflection = $this->reflect($subject);
+        $reflection->_make('non_existing');
+    }
+
+    /**
      * Tests the service ID checker method.
      *
      * @since 0.1
@@ -411,5 +432,23 @@ class AbstractContainerTest extends TestCase
         );
 
         $this->assertEquals(new \DateTimeZone('Europe/Malta'), $resolved);
+    }
+
+    /**
+     * Tests to ensure that an exception is thrown when definition is invalid.
+     *
+     * @expectedException \Exception
+     * @expectedExceptionMessage must be callable
+     *
+     * @since 0.1
+     */
+    public function testResolveDefinitionThrowsInvalid()
+    {
+        $definition = 'invalid definition';
+        $subject = $this->createInstance();
+        $subject->this()->_resolveDefinition(
+            $definition,
+            array()
+        );
     }
 }
