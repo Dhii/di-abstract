@@ -3,6 +3,7 @@
 namespace Dhii\Di;
 
 use Interop\Container\ContainerInterface as BaseContainerInterface;
+use Interop\Container\Exception\NotFoundException;
 use Traversable;
 
 /**
@@ -62,11 +63,15 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      *
      * @param string $id The ID of the service to retrieve.
      *
-     * @return mixed|null The service, if found; otherwise, null.
+     * @return mixed The service.
+     *
+     * @throws NotFoundException If none of the inner containers have a matching service.
      */
     protected function _getDelegated($id)
     {
-        $having = $this->_hasDelegated($id);
+        if (!($having = $this->_hasDelegated($id))) {
+            throw $this->_createNotFoundException(sprintf('Could not create service for ID "%1$s": no service defined', $id));
+        }
 
         return ($having)
             ? $having->get($id)
