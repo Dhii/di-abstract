@@ -64,7 +64,7 @@ abstract class AbstractContainer
      *
      * @throws NotFoundExceptionInterface If no service is registered with the given ID.
      *
-     * @return object|null The created service instance.
+     * @return mixed The created service.
      */
     protected function _make($id, $config = array())
     {
