@@ -73,9 +73,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
             throw $this->_createNotFoundException(sprintf('Could not create service for ID "%1$s": no service defined', $id));
         }
 
-        return ($having)
-            ? $having->get($id)
-            : null;
+        return $having->get($id);
     }
 
     /**
