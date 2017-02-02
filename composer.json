@@ -30,11 +30,5 @@
         "psr-4": {
             "Dhii\\Di\\Stub\\": "test/stub/"
         }
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Dhii/di-interface.git"
-        }
-    ]
+    }
 }

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6b62064acdaac2e12d81bbde3877883",
-    "content-hash": "32245e6f58286118606782e9e903f0e9",
+    "hash": "1ab08e52784fae80cb4710c571eb0324",
+    "content-hash": "6b1873b7a791460d54c439a413cbc14c",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -71,12 +71,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Dhii/di-interface.git",
-                "reference": "27bdb067239dff68b51aabdfdbe66f4dbf387e61"
+                "reference": "09a6c6a6e7041ee3dd9ab45332d449d18a057514"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Dhii/di-interface/zipball/27bdb067239dff68b51aabdfdbe66f4dbf387e61",
-                "reference": "27bdb067239dff68b51aabdfdbe66f4dbf387e61",
+                "url": "https://api.github.com/repos/Dhii/di-interface/zipball/09a6c6a6e7041ee3dd9ab45332d449d18a057514",
+                "reference": "09a6c6a6e7041ee3dd9ab45332d449d18a057514",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +109,7 @@
                 "source": "https://github.com/Dhii/di-interface/tree/master",
                 "issues": "https://github.com/Dhii/di-interface/issues"
             },
-            "time": "2017-01-27 13:11:39"
+            "time": "2017-01-31 13:13:49"
         }
     ],
     "packages-dev": [
