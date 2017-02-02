@@ -62,7 +62,7 @@ class AbstractContainerTest extends TestCase
      */
     public function createServiceProvider(array $definitions = array())
     {
-        $mock = $this->mock('Dhii\\Di\\ServiceProviderInterface')
+        $mock = $this->mock('Interop\\Container\\ServiceProvider')
             ->getServices(function () use ($definitions) {
                 return $definitions;
             })
