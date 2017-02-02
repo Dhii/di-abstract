@@ -303,7 +303,35 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
         $this->assertEquals(123456, $subject->this()->_getDelegated('test'));
 
         $this->assertEquals('duplicate from 2', $subject->this()->_getDelegated('dupe'));
+    }
 
-        $this->assertNull($subject->this()->_getDelegated('foobar'));
+    /**
+     * Tests that the composite container will throw an exception if none of the
+     * child containers have a matching service.
+     *
+     * @expectedException \Exception
+     * @expectedExceptionMessage no service defined
+     *
+     * @since 0.1
+     */
+    public function testGetDelegatedThrowsNotFound()
+    {
+        $subject = $this->createInstance();
+        $reflection = $this->reflect($subject);
+
+        $child1 = $this->createChildContainer(array(
+            'test1' => $this->createDefinition(321654),
+        ));
+        $child2 = $this->createChildContainer(array(
+            'test2' => $this->createDefinition(123456),
+            'test3' => $this->createDefinition('asdasdasd'),
+        ));
+
+        $reflection->serviceDefinitions = array(
+            $reflection->_createContainerId($child1) => $this->createDefinition($child1),
+            $reflection->_createContainerId($child2) => $this->createDefinition($child2),
+        );
+
+        $reflection->_getDelegated('non existing service');
     }
 }
