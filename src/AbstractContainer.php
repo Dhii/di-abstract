@@ -59,8 +59,6 @@ abstract class AbstractContainer
      *
      * This can be exposed by a public method to implement FactoryInterface.
      *
-     * @todo Check why return doc includes a `null` possibility.
-     *
      * @param string $id     The ID of the service to create.
      * @param mixed  $config Some kind of configuration.
      *
