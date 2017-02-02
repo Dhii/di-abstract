@@ -40,8 +40,6 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Generates a container ID.
      *
-     * @todo To check if the $container instance should play a part in ID generation.
-     *
      * @since 0.1
      *
      * @param ContainerInterface $container The container for which an ID will be generated.
