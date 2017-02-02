@@ -8,7 +8,7 @@ use Interop\Container\ContainerInterface;
 /**
  * Stub class - used for testing the {@see AbstractCompositeContainer}.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractCompositeContainerStub extends AbstractCompositeContainer
     implements ContainerInterface

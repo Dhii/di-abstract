@@ -10,7 +10,7 @@ use Xpmock\TestCase;
 /**
  * Tests {@see Dhii\Di\AbstractContainer}.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class AbstractContainerTest extends TestCase
 {
@@ -22,7 +22,7 @@ class AbstractContainerTest extends TestCase
     /**
      * Creates a new instance of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ServiceProvider $provider Optional service provider. Default: null
      *
@@ -54,13 +54,15 @@ class AbstractContainerTest extends TestCase
     /**
      * Creates a service provider.
      *
+     * @since 0.1
+     *
      * @param array $definitions The service definitions.
      *
      * @return ServiceProvider
      */
     public function createServiceProvider(array $definitions = array())
     {
-        $mock = $this->mock('Dhii\\Di\\ServiceProviderInterface')
+        $mock = $this->mock('Interop\\Container\\ServiceProvider')
             ->getServices(function () use ($definitions) {
                 return $definitions;
             })
@@ -71,6 +73,8 @@ class AbstractContainerTest extends TestCase
 
     /**
      * Create a service definition that returns a simple value.
+     *
+     * @since 0.1
      *
      * @param mixed $value The value that the service definition will return.
      *
@@ -86,7 +90,7 @@ class AbstractContainerTest extends TestCase
     /**
      * Tests whether a valid instance of the test subject can be created.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testCanBeCreated()
     {
@@ -98,7 +102,7 @@ class AbstractContainerTest extends TestCase
     /**
      * Tests the service getter to retrieve a new service instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetNewService()
     {
@@ -117,7 +121,7 @@ class AbstractContainerTest extends TestCase
      * Tests the service getter to ensure that multiple retrievals of the same service return
      * the same instance.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetSameService()
     {
@@ -138,7 +142,7 @@ class AbstractContainerTest extends TestCase
     /**
      * Tests the factory method to ensure that a new service instance is created.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testMakeOnce()
     {
@@ -156,7 +160,7 @@ class AbstractContainerTest extends TestCase
     /**
      * Tests the factory method to ensure that multiple calls still result in different instances.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testMakeTwice()
     {
@@ -172,9 +176,30 @@ class AbstractContainerTest extends TestCase
     }
 
     /**
+     * Tests that the container throws correct exception when service not found.
+     *
+     * @expectedException \Exception
+     * @expectedExceptionMessage no service defined
+     *
+     * @since 0.1
+     */
+    public function testMakeThrowsNotFound()
+    {
+        $serviceProvider = $this->createServiceProvider(array(
+            'test' => function () {
+                return new \SplObjectStorage();
+            },
+        ));
+
+        $subject = $this->createInstance($serviceProvider);
+        $reflection = $this->reflect($subject);
+        $reflection->_make('non_existing');
+    }
+
+    /**
      * Tests the service ID checker method.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testHas()
     {
@@ -196,7 +221,7 @@ class AbstractContainerTest extends TestCase
      * Tests the method that registers a service provider to ensure that all services are
      * correctly registered from the provider to the container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testRegister()
     {
@@ -217,7 +242,7 @@ class AbstractContainerTest extends TestCase
      * Tests the definition setter method to ensure that the definition is correctly registered
      * to the container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testSetDefintion()
     {
@@ -234,7 +259,7 @@ class AbstractContainerTest extends TestCase
      * Tests the main setter method with a service definition to ensure that the
      * service definition is correctly registered in the container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testSetWithDefinition()
     {
@@ -251,7 +276,7 @@ class AbstractContainerTest extends TestCase
      * Tests the main setter method with a service definition to ensure that the
      * service definition is correctly registered in the container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testSetWithProvider()
     {
@@ -272,7 +297,7 @@ class AbstractContainerTest extends TestCase
      * Tests the definitions getter method to ensure that the definitions returned
      * all correct, previously registered definitions.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetDefinitions()
     {
@@ -292,7 +317,7 @@ class AbstractContainerTest extends TestCase
      * correct definition when given an existing ID and `null` when given a
      * non-existing ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetDefinition()
     {
@@ -310,7 +335,7 @@ class AbstractContainerTest extends TestCase
      * Tests the definition checker method to ensure that it correctly asserts
      * if the container has specific definitions, by ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testHasDefinition()
     {
@@ -327,7 +352,7 @@ class AbstractContainerTest extends TestCase
      * previously retrieved services are correctly cached while others
      * are not.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetCached()
     {
@@ -351,7 +376,7 @@ class AbstractContainerTest extends TestCase
      * Tests the cached service instance checker method to ensure that
      * it correctly asserts whether a service instance is cached or not.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testIsCached()
     {
@@ -375,7 +400,7 @@ class AbstractContainerTest extends TestCase
      * Tests the service caching method to ensure that the given service is
      * correctly cached.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testCacheService()
     {
@@ -397,7 +422,7 @@ class AbstractContainerTest extends TestCase
      * Tests the definition resolver method to ensure that a valid service instance
      * is created.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testResolveDefinition()
     {
@@ -411,5 +436,23 @@ class AbstractContainerTest extends TestCase
         );
 
         $this->assertEquals(new \DateTimeZone('Europe/Malta'), $resolved);
+    }
+
+    /**
+     * Tests to ensure that an exception is thrown when definition is invalid.
+     *
+     * @expectedException \Exception
+     * @expectedExceptionMessage must be callable
+     *
+     * @since 0.1
+     */
+    public function testResolveDefinitionThrowsInvalid()
+    {
+        $definition = 'invalid definition';
+        $subject = $this->createInstance();
+        $subject->this()->_resolveDefinition(
+            $definition,
+            array()
+        );
     }
 }

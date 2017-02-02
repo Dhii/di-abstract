@@ -10,7 +10,7 @@ use Interop\Container\Exception\ContainerException as BaseContainerException;
  *
  * Used in testing to allow mocked methods to throw {@see Exception} instances that implement {@see ContainerException}.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class ContainerException extends Exception implements BaseContainerException
 {

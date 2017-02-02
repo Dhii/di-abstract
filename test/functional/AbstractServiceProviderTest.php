@@ -11,7 +11,7 @@ use Xpmock\TestCase;
 /**
  * Tests {@see Dhii\Di\AbstractServiceProvider}.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 class AbstractServiceProviderTest extends TestCase
 {
@@ -23,7 +23,7 @@ class AbstractServiceProviderTest extends TestCase
     /**
      * Creates a new instance of the test subject.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ServiceProvider $provider Optional service provider. Default: null
      *
@@ -64,7 +64,7 @@ class AbstractServiceProviderTest extends TestCase
     /**
      * Tests the service getter method to ensure that all services are correctly retrieved in an array.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testGetServices()
     {
@@ -82,7 +82,7 @@ class AbstractServiceProviderTest extends TestCase
      * Tests the service definition registration method to ensure that definitions are correctly
      * registered in the provider.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testAdd()
     {
@@ -99,7 +99,7 @@ class AbstractServiceProviderTest extends TestCase
      * Tests the multiple service definition registration method to ensure that definitions are
      * correctly registered in the provider.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testAddMany()
     {
@@ -118,7 +118,7 @@ class AbstractServiceProviderTest extends TestCase
      * Tests the service definition registration method with an invalid definition to ensure that an
      * exception is thrown in such cases.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     public function testAddInvalidDefinition()
     {

@@ -3,26 +3,27 @@
 namespace Dhii\Di;
 
 use Interop\Container\ContainerInterface as BaseContainerInterface;
+use Interop\Container\Exception\NotFoundException;
 use Traversable;
 
 /**
  * A container that can have many containers.
  *
- * @since [*next-version*]
+ * @since 0.1
  */
 abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
 {
     /**
      * The prefix for container IDs.
      *
-     * @since [*next-version*]
+     * @since 0.1
      */
     const CONTAINER_ID_PREFIX = 'container-';
 
     /**
      * Adds a container.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param BaseContainerInterface $container The container to add.
      *
@@ -40,9 +41,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Generates a container ID.
      *
-     * @todo To check if the $container instance should play a part in ID generation.
-     *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param ContainerInterface $container The container for which an ID will be generated.
      *
@@ -60,25 +59,27 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Retrieves a service from the first child container that has its definition.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service to retrieve.
      *
-     * @return mixed|null The service, if found; otherwise, null.
+     * @return mixed The service.
+     *
+     * @throws NotFoundException If none of the inner containers have a matching service.
      */
     protected function _getDelegated($id)
     {
-        $having = $this->_hasDelegated($id);
+        if (!($having = $this->_hasDelegated($id))) {
+            throw $this->_createNotFoundException(sprintf('Could not create service for ID "%1$s": no service defined', $id));
+        }
 
-        return ($having)
-            ? $having->get($id)
-            : null;
+        return $having->get($id);
     }
 
     /**
      * Determines which of the child containers has a service with the specified ID.
      *
-     * @since [*next-version*]
+     * @since 0.1
      *
      * @param string $id The ID of the service to check for.
      *
@@ -87,14 +88,13 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      */
     protected function _hasDelegated($id)
     {
-        $containers = $this->_getContainers();
-        $container  = end($containers);
+        $containers = $this->_getContainersReversed();
 
-        do {
-            if ($container->has($id)) {
-                return $container;
+        foreach ($containers as $_container) {
+            if ($_container->has($id)) {
+                return $_container;
             }
-        } while ($container = prev($containers));
+        }
 
         return false;
     }
@@ -102,7 +102,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
     /**
      * Gets the child containers.
      *
-     * @since [*next-version*]
+     * @since 0.1
      * @see CompositeContainerInterface::getContainers()
      *
      * @return ContainerInterface[]|Traversable A list of containers.
@@ -118,5 +118,18 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
         }
 
         return $containers;
+    }
+
+    /**
+     * Gets the child containers in reverse order.
+     *
+     * @since 0.1
+     * @see CompositeContainerInterface::getContainers()
+     *
+     * @return ContainerInterface[]|Traversable A list of containers.
+     */
+    protected function _getContainersReversed()
+    {
+        return array_reverse($this->_getContainers());
     }
 }
