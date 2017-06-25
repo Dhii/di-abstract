@@ -2,8 +2,8 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\Exception\ContainerException as ContainerExceptionInterface;
-use Interop\Container\Exception\NotFoundException as NotFoundExceptionInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Exception;
 use Interop\Container\ServiceProvider as BaseServiceProvider;
 
@@ -180,6 +180,8 @@ abstract class AbstractContainer
      *
      * @param string   $id         The service ID.
      * @param callable $definition The service definition.
+     *
+     * @return $this
      */
     protected function _setDefinition($id, $definition)
     {

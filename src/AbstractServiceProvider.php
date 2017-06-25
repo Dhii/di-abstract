@@ -2,7 +2,7 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\Exception\ContainerException as ContainerExceptionInterface;
+use Psr\Container\ContainerExceptionInterface;
 use Interop\Container\ServiceProvider;
 
 /**
@@ -42,7 +42,7 @@ abstract class AbstractServiceProvider
      * @param string   $id         The ID of the service definition.
      * @param callable $definition The service definition.
      *
-     * @throws ContainerException
+     * @throws ContainerExceptionInterface
      */
     protected function _add($id, $definition)
     {
