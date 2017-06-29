@@ -2,7 +2,7 @@
 
 namespace Dhii\Di\FuncTest;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use Dhii\Di\AbstractParentAwareContainer;
 use Exception;
 use Interop\Container\ServiceProvider;

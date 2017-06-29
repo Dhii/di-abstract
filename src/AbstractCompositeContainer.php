@@ -2,8 +2,8 @@
 
 namespace Dhii\Di;
 
-use Interop\Container\ContainerInterface as BaseContainerInterface;
-use Interop\Container\Exception\NotFoundException;
+use Psr\Container\ContainerInterface as BaseContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Traversable;
 
 /**
@@ -65,7 +65,7 @@ abstract class AbstractCompositeContainer extends AbstractParentAwareContainer
      *
      * @return mixed The service.
      *
-     * @throws NotFoundException If none of the inner containers have a matching service.
+     * @throws NotFoundExceptionInterface If none of the inner containers have a matching service.
      */
     protected function _getDelegated($id)
     {

@@ -6,7 +6,7 @@ namespace Dhii\Di\FuncTest;
  * Tests {@see Dhii\Di\AbstractCompositeContainer}.
  *
  * The {@see Dhii\Di\Stub\AbstractCompositeContainerStub} class is used to make the test subject
- * implement the {@see Interop\Container\ContainerInterface} interface.
+ * implement the {@see Psr\Container\ContainerInterface} interface.
  *
  * This is required for some tests to pass since the code of the test subject relies on the
  * container being passed as the first argument to service factory closures to be a container
@@ -53,7 +53,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      * Creates a child container.
      *
      * This method differs from {@see createInstance} in that it creates the container mock from the
-     * {@see Interop\Container\ContainerInterface} interface rather than from
+     * {@see Psr\Container\ContainerInterface} interface rather than from
      * {@see AbstractCompositeContainer} class.
      *
      * @param array $definitions Optional array of service definitions.
@@ -62,7 +62,7 @@ class AbstractCompositeContainerTest extends \Xpmock\TestCase
      */
     public function createChildContainer(array $definitions = array())
     {
-        $mock = $this->mock('Interop\\Container\\ContainerInterface')
+        $mock = $this->mock('Psr\\Container\\ContainerInterface')
             ->has(function ($id) use ($definitions) {
                 return isset($definitions[$id]);
             })

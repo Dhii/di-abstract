@@ -3,7 +3,7 @@
 namespace Dhii\Di\Stub;
 
 use Exception;
-use Interop\Container\Exception\ContainerException as BaseContainerException;
+use Psr\Container\ContainerExceptionInterface as BaseContainerException;
 
 /**
  * Stub class for container exceptions.

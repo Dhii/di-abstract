@@ -124,7 +124,7 @@ class AbstractServiceProviderTest extends TestCase
     {
         $subject = $this->createInstance();
 
-        $this->setExpectedException('\\Interop\\Container\\Exception\\ContainerException');
+        $this->setExpectedException('Psr\\Container\\ContainerExceptionInterface');
 
         $subject->this()->_add('test', new \DOMText('this is not a definition!'));
     }

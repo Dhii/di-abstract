@@ -3,7 +3,7 @@
 namespace Dhii\Di\Stub;
 
 use Dhii\Di\AbstractCompositeContainer;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 
 /**
  * Stub class - used for testing the {@see AbstractCompositeContainer}.
