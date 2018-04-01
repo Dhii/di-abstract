@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - `GetServiceCapableCachingTrait`.
 - `ResolveDefinitionCapableTrait`.
 - `ServiceCacheAwareTrait`.
+- `AssignDefinitionContainerCapableTrait`.
 
 ## [0.1] - 2017-02-02
 Initial release, containing the abstract implementations.
