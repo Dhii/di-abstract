@@ -2,7 +2,7 @@
 
 namespace Dhii\Di;
 
-use Dhii\Cache\ContainerInterface;
+use Dhii\Cache\ContainerInterface as CacheContainerInterface;
 use Dhii\Util\String\StringableInterface as Stringable;
 use Exception as RootException;
 use InvalidArgumentException;
@@ -19,7 +19,7 @@ trait ServiceCacheAwareTrait
      *
      * @since [*next-version*]
      *
-     * @var ContainerInterface|null
+     * @var CacheContainerInterface|null
      */
     protected $serviceCache;
 
@@ -28,7 +28,7 @@ trait ServiceCacheAwareTrait
      *
      * @since [*next-version*]
      *
-     * @return ContainerInterface|null The service cache.
+     * @return CacheContainerInterface|null The service cache.
      */
     protected function _getServiceCache()
     {
@@ -40,11 +40,11 @@ trait ServiceCacheAwareTrait
      *
      * @since [*next-version*]
      *
-     * @param ContainerInterface|null $serviceCache The service cache.
+     * @param CacheContainerInterface|null $serviceCache The service cache.
      */
     protected function _setServiceCache($serviceCache)
     {
-        if ($serviceCache !== null && !($serviceCache instanceof ContainerInterface)) {
+        if ($serviceCache !== null && !($serviceCache instanceof CacheContainerInterface)) {
             throw $this->_createInvalidArgumentException($this->__('Invalid cache'), null, null, $serviceCache);
         }
 
